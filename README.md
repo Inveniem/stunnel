@@ -1,4 +1,4 @@
-# goofball222/stunnel - fork of frediweber/stunnel
+# STunnel Docker Container
 
 ## Stunnel on Alpine
 To secure an LDAP container named `directory`:
@@ -14,10 +14,14 @@ docker run -itd --name ldaps --link directory:ldap \
     frediweber/stunnel
 ```
 
-### Copyright Notice
+## Copyright Notice
 >The [MIT License](LICENSE.txt) ([MIT](https://opensource.org/licenses/MIT))
 >
-> Copyright &copy; 2015-2017 [Jacob Blain Christen](https://github.com/dweomer)
+> Copyright &copy; 2015-2017 [Jacob Blain Christen](https://github.com/dweomer)  
+> Portions Copyright &copy; 2017-2018, Emmanuel Frecon  
+> Portions Copyright &copy; 2018, Frederik Weber  
+> Portions Copyright &copy; 2018, "The Goofball (goofball222)"  
+> Portions Copyright &copy; 2019, Inveniem  
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy of
 > this software and associated documentation files (the "Software"), to deal in
