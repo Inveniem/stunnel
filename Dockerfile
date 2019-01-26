@@ -1,15 +1,16 @@
 FROM alpine:latest
 
+ARG STUNNEL_VERSION
+ARG IMAGE_VERSION
+
 ARG BUILD_DATE
 ARG VCS_REF
-ARG VERSION
-ARG STUNNEL_VERSION=5.50
 
 LABEL \
     org.label-schema.vendor="Inveniem - Guy Elsmore-Paddock" \
     org.label-schema.url="https://github.com/guypaddock/stunnel" \
     org.label-schema.name="STunnel Docker Container" \
-    org.label-schema.version=$VERSION \
+    org.label-schema.version=$IMAGE_VERSION \
     org.label-schema.vcs-url="https://github.com/guypaddock/stunnel.git" \
     org.label-schema.vcs-ref=$VCS_REF \
     org.label-schema.build-date=$BUILD_DATE \

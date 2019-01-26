@@ -1,10 +1,15 @@
 #!/bin/bash
 
-# $IMAGE_NAME var is injected into the build so the tag is correct.
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-#echo "Build hook running"
+source "${SCRIPT_DIR}/../version.env"
+
+# $IMAGE_NAME var is injected into the build so the tag is correct.
 docker build \
     --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
     --build-arg VCS_REF=`git rev-parse --short HEAD` \
-    --build-arg VERSION=`cat VERSION` \
-    -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+    --build-arg "IMAGE_VERSION=${IMAGE_VERSION}" \
+    --build-arg "STUNNEL_VERSION=${STUNNEL_VERSION}" \
+    -f "${DOCKERFILE_PATH}" \
+    -t "${IMAGE_NAME}" \
+    .
