@@ -6,7 +6,6 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 debug = ${STUNNEL_DEBUG}
-output = /var/log/stunnel/stunnel.log
 foreground = yes
 
 [${STUNNEL_SERVICE}]

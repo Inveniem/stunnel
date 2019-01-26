@@ -42,8 +42,8 @@ COPY entrypoint.sh /srv/
 
 RUN set -x \
  && chmod +x /srv/entrypoint.sh \
- && mkdir -p /var/run/stunnel /var/log/stunnel /etc/stunnel \
- && chown -vR stunnel:stunnel /var/run/stunnel /var/log/stunnel
+ && mkdir -p /var/run/stunnel /etc/stunnel \
+ && chown -vR stunnel:stunnel /var/run/stunnel
 
 ENTRYPOINT ["/srv/entrypoint.sh"]
 CMD ["stunnel", "/etc/stunnel/stunnel.conf"]
