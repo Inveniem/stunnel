@@ -48,12 +48,12 @@ RUN set -x \
  && apk --no-network info openssl
 
 COPY *.template openssl.cnf /srv/stunnel/
-COPY stunnel.sh /srv/
+COPY entrypoint.sh /srv/
 
 RUN set -x \
- && chmod +x /srv/stunnel.sh \
+ && chmod +x /srv/entrypoint.sh \
  && mkdir -p /var/run/stunnel /var/log/stunnel /etc/stunnel \
  && chown -vR stunnel:stunnel /var/run/stunnel /var/log/stunnel
 
-ENTRYPOINT ["/srv/stunnel.sh"]
+ENTRYPOINT ["/srv/entrypoint.sh"]
 CMD ["stunnel", "/etc/stunnel/stunnel.conf"]
