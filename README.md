@@ -6,6 +6,7 @@ From the [stunnel website](https://www.stunnel.org/):
 > natively
 
 ## Supported Tags and Respective Dockerfile Links
+- `master` ([Dockerfile](https://github.com/GuyPaddock/stunnel/blob/master/Dockerfile))
 - `5.50-beta3`, `5.50`, `5`, `latest`, `stable` ([Dockerfile](https://github.com/GuyPaddock/stunnel/blob/5.50-beta3/Dockerfile))
 - `5.50-beta2` ([Dockerfile](https://github.com/GuyPaddock/stunnel/blob/5.50-beta2/Dockerfile))
 - `5.50-beta1`, ([Dockerfile](https://github.com/GuyPaddock/stunnel/blob/5.50-beta1/Dockerfile))
