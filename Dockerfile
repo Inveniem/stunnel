@@ -6,17 +6,6 @@ ARG IMAGE_VERSION
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL \
-    org.label-schema.vendor="Inveniem - Guy Elsmore-Paddock" \
-    org.label-schema.url="https://github.com/guypaddock/stunnel" \
-    org.label-schema.name="STunnel Docker Container" \
-    org.label-schema.version=$IMAGE_VERSION \
-    org.label-schema.vcs-url="https://github.com/guypaddock/stunnel.git" \
-    org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.build-date=$BUILD_DATE \
-    org.label-schema.license="MIT" \
-    org.label-schema.schema-version="1.0"
-
 RUN set -x \
  && addgroup -S stunnel \
  && adduser -S -G stunnel stunnel \
@@ -58,3 +47,14 @@ RUN set -x \
 
 ENTRYPOINT ["/srv/entrypoint.sh"]
 CMD ["stunnel", "/etc/stunnel/stunnel.conf"]
+
+LABEL \
+    org.label-schema.vendor="Inveniem - Guy Elsmore-Paddock" \
+    org.label-schema.url="https://github.com/guypaddock/stunnel" \
+    org.label-schema.name="STunnel Docker Container" \
+    org.label-schema.version=$IMAGE_VERSION \
+    org.label-schema.vcs-url="https://github.com/guypaddock/stunnel.git" \
+    org.label-schema.vcs-ref=$VCS_REF \
+    org.label-schema.build-date=$BUILD_DATE \
+    org.label-schema.license="MIT" \
+    org.label-schema.schema-version="1.0"
