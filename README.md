@@ -5,6 +5,10 @@ From the [stunnel website](https://www.stunnel.org/):
 > encrypted connections for clients or servers that do not speak TLS or SSL 
 > natively
 
+## Supported Tags and Respective Dockerfile Links
+- `5.50-beta2`, `5.50`, `5`, `latest`, `stable` ([Dockerfile](https://github.com/GuyPaddock/stunnel/blob/5.50-beta2/Dockerfile))
+- `5.50-beta1`, ([Dockerfile](https://github.com/GuyPaddock/stunnel/blob/5.50-beta1/Dockerfile))
+
 ## Examples
 ### Allow Local Insecure Clients to Connect to PKI-Secured SSL/TLS Server
 These examples show how you would proxy Redis clients that do not support 
@@ -19,6 +23,7 @@ docker run -itd \
     -e STUNNEL_SERVICE=redis \
     -e STUNNEL_ACCEPT=6379 \
     -e STUNNEL_CONNECT=myredis.redis.cache.windows.net:6380 \
+    -e STUNNEL_CHECK_HOST=myredis.redis.cache.windows.net \
     -e STUNNEL_VERIFY_CHAIN=yes \
     -p 6379:6379 \
     guyelsmorepaddock/stunnel
@@ -33,6 +38,7 @@ docker run -itd \
     -e STUNNEL_SERVICE=redis \
     -e STUNNEL_ACCEPT=6379 \
     -e STUNNEL_CONNECT=myredis.redis.cache.windows.net:6380 \
+    -e STUNNEL_CHECK_HOST=myredis.redis.cache.windows.net \
     -e STUNNEL_VERIFY_CHAIN=yes \
     -p 6379:6379 \
     -v /etc/ssl/private/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro \
