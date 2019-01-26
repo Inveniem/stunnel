@@ -92,6 +92,32 @@ system into `/etc/stunnel/stunnel.pem` in the container, which is the default
 location the container looks for the certificate. The location within the 
 container can be overridden by setting the `STUNNEL_CRT` environment variable.
 
+#### Using a Custom Cipher List
+By default, the container configures `stunnel` to use only ciphers indicated as 
+["Grade A" on the OWASP Cheat Sheet](https://www.owasp.org/index.php/TLS_Cipher_String_Cheat_Sheet#Examples_for_cipher_strings)
+(as of 2019-01-25).
+
+For a variety of reasons, including a desire for more security, a need for 
+compatibility with legacy systems and/or a delay in getting updates from 
+vendors, this default may not work for everyone's needs. 
+
+This example shows how to provide your own list of allowed ciphers:
+
+```bash
+docker run -itd --name ldaps --link directory:ldap \
+    -e STUNNEL_SERVICE=ldaps \
+    -e STUNNEL_ACCEPT=636 \
+    -e STUNNEL_CONNECT=ldap:389 \
+    -e "STUNNEL_CIPHERS=DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA"
+    -p 636:636 \
+    -v /etc/ssl/private/server.key:/etc/stunnel/stunnel.key:ro \
+    -v /etc/ssl/private/server.crt:/etc/stunnel/stunnel.pem:ro \
+    guyelsmorepaddock/stunnel
+```
+
+This example switches `stunnel` to using the "Broad Compatibility (Grade B)" 
+list of ciphers from OWASP (as of 2019-01-25).
+
 ### Allow Local Insecure Clients to Connect to PSK-Secured Server
 This example demonstrates how to connect to a service that as been secured with 
 a pre-shared key (PSK):

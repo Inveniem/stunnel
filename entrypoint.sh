@@ -3,13 +3,20 @@
 # Initialize all STUNNEL_ environment variables to good defaults.
 export STUNNEL_CONF="/etc/stunnel/stunnel.conf"
 export STUNNEL_DEBUG="${STUNNEL_DEBUG:-5}"
+
 export STUNNEL_CLIENT="${STUNNEL_CLIENT:-no}"
+
+export STUNNEL_PSK="${STUNNEL_PSK:-}"
+
 export STUNNEL_CAFILE="${STUNNEL_CAFILE:-/etc/ssl/certs/ca-certificates.crt}"
 export STUNNEL_VERIFY_CHAIN="${STUNNEL_VERIFY_CHAIN:-no}"
 export STUNNEL_VERIFY_PEER="${STUNNEL_VERIFY_PEER:-no}"
 export STUNNEL_KEY="${STUNNEL_KEY:-/etc/stunnel/stunnel.key}"
 export STUNNEL_CRT="${STUNNEL_CRT:-/etc/stunnel/stunnel.pem}"
-export STUNNEL_PSK="${STUNNEL_PSK:-}"
+
+# Grade A Cipher list
+# See: https://www.owasp.org/index.php/TLS_Cipher_String_Cheat_Sheet#Examples_for_cipher_strings
+export STUNNEL_CIPHERS="${STUNNEL_CIPHERS:-DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256}"
 
 if [[ -z "${STUNNEL_SERVICE}" ]] || [[ -z "${STUNNEL_ACCEPT}" ]] || \
    [[ -z "${STUNNEL_CONNECT}" ]]; then
