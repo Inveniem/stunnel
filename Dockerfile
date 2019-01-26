@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.8
 
 ARG STUNNEL_VERSION
 ARG IMAGE_VERSION
