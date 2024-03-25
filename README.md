@@ -28,7 +28,7 @@ docker run -itd \
     -e STUNNEL_CHECK_HOST=myredis.redis.cache.windows.net \
     -e STUNNEL_VERIFY_CHAIN=yes \
     -p 6379:6379 \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 #### Using a Custom Root Certificate Chain
@@ -44,7 +44,7 @@ docker run -itd \
     -e STUNNEL_VERIFY_CHAIN=yes \
     -p 6379:6379 \
     -v /etc/ssl/private/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 This loads the custom certificate chain from
@@ -65,7 +65,7 @@ docker run -itd --name ldaps --link directory:ldap \
     -e STUNNEL_ACCEPT=636 \
     -e STUNNEL_CONNECT=ldap:389 \
     -p 636:636 \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 This will automatically generate a self-signed certificate that expires in 365 
@@ -80,7 +80,7 @@ docker run -itd --name ldaps --link directory:ldap \
     -p 636:636 \
     -v /etc/ssl/private/server.key:/etc/stunnel/stunnel.key:ro \
     -v /etc/ssl/private/server.crt:/etc/stunnel/stunnel.pem:ro \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 This accomplishes the following:
@@ -114,7 +114,7 @@ docker run -itd --name ldaps --link directory:ldap \
     -p 636:636 \
     -v /etc/ssl/private/server.key:/etc/stunnel/stunnel.key:ro \
     -v /etc/ssl/private/server.crt:/etc/stunnel/stunnel.pem:ro \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 This example switches `stunnel` to using the "Broad Compatibility (Grade B)" 
@@ -133,7 +133,7 @@ docker run -itd \
     -e STUNNEL_PSK=/etc/stunnel/stunnel.psk \
     -v /etc/ssl/private/server.psk:/etc/stunnel/stunnel.psk:ro \
     -p 6379:6379 \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 ### Wrap Local Server for PSK-Secured Client Connections
@@ -147,7 +147,7 @@ docker run -itd \
     -e STUNNEL_PSK=/etc/stunnel/stunnel.psk \
     -v /etc/ssl/private/server.psk:/etc/stunnel/stunnel.psk:ro \
     -p 6379:6379 \
-    guyelsmorepaddock/stunnel
+    inveniem/stunnel
 ```
 
 ## Copyright Notice
@@ -157,7 +157,7 @@ docker run -itd \
 > Portions Copyright &copy; 2017-2018, Emmanuel Frecon  
 > Portions Copyright &copy; 2018, Frederik Weber  
 > Portions Copyright &copy; 2018, "The Goofball (goofball222)"  
-> Portions Copyright &copy; 2019, Inveniem  
+> Portions Copyright &copy; 2019-2024, Inveniem  
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy of
 > this software and associated documentation files (the "Software"), to deal in

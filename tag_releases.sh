@@ -8,6 +8,6 @@ tags=(
 )
 
 for tag in "${tags[@]}"; do
-    docker tag "guyelsmorepaddock/stunnel:${1}" "guyelsmorepaddock/stunnel:${tag}"
-    docker push "guyelsmorepaddock/stunnel:${tag}"
+    docker tag "inveniem/stunnel:${1}" "inveniem/stunnel:${tag}"
+    docker push "inveniem/stunnel:${tag}"
 done
