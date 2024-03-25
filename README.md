@@ -96,8 +96,8 @@ container can be overridden by setting the `STUNNEL_CRT` environment variable.
 
 #### Using a Custom Cipher List
 By default, the container configures `stunnel` to use only ciphers indicated as 
-["Grade A" on the OWASP Cheat Sheet](https://www.owasp.org/index.php/TLS_Cipher_String_Cheat_Sheet#Examples_for_cipher_strings)
-(as of 2019-01-25).
+"Modern" by [Mozilla's SSL Configuration Generator](https://ssl-config.mozilla.org/)
+(as of 2024-03-24).
 
 For a variety of reasons, including a desire for more security, a need for 
 compatibility with legacy systems and/or a delay in getting updates from 
@@ -116,9 +116,6 @@ docker run -itd --name ldaps --link directory:ldap \
     -v /etc/ssl/private/server.crt:/etc/stunnel/stunnel.pem:ro \
     inveniem/stunnel
 ```
-
-This example switches `stunnel` to using the "Broad Compatibility (Grade B)" 
-list of ciphers from OWASP (as of 2019-01-25).
 
 ### Allow Local Insecure Clients to Connect to PSK-Secured Server
 This example demonstrates how to connect to a service that as been secured with 
