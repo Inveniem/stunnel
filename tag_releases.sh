@@ -3,7 +3,7 @@
 tags=(
     "latest"
     "stable"
-    "5.50"
+    "5.72"
     "5"
 )
 
