@@ -12,12 +12,12 @@ foreground = yes
 client = yes
 accept = ${STUNNEL_ACCEPT}
 connect = ${STUNNEL_CONNECT}
-options = NO_TLSv1
-options = NO_TLSv1.1
+
+options = NO_SSLv3
 options = CIPHER_SERVER_PREFERENCE
 options = DONT_INSERT_EMPTY_FRAGMENTS
 
-ciphers = ${STUNNEL_CIPHERS}
+ciphersuites = ${STUNNEL_CIPHERS_1_3}
 
 CAfile = ${STUNNEL_CAFILE}
 verifyChain = ${STUNNEL_VERIFY_CHAIN}

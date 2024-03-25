@@ -16,7 +16,7 @@ export STUNNEL_CRT="${STUNNEL_CRT:-/etc/stunnel/stunnel.pem}"
 
 # "Modern" Ciphers according to Mozilla's SSL Configuration Generator
 # See: https://ssl-config.mozilla.org/
-export STUNNEL_CIPHERS="${STUNNEL_CIPHERS:-TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256}"
+export STUNNEL_CIPHERS_1_3="${STUNNEL_CIPHERS_1_3:-TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256}"
 
 if [ -z "${STUNNEL_SERVICE}" ] || [ -z "${STUNNEL_ACCEPT}" ] || \
    [ -z "${STUNNEL_CONNECT}" ]; then
